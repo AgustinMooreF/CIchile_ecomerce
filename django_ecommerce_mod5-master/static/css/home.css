@@ -1,0 +1,63 @@
+.auto-container{
+    background-color: #373c48;
+    width:80%;
+}
+
+.btn-group{
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+#btnMatricula{
+    background-color:#373c48;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-group p{
+    color:white;
+   
+    font-family: 'Poppins', sans-serif;
+}
+
+.auto-container p{
+    color:white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+#anio{
+    width:120px;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.form-inline{
+    justify-content: center;
+}
+
+#enviar-cot-banner{
+    font-family: 'Poppins', sans-serif;
+}
+
+.browser{
+    z-index: 9;
+
+}
+
+.carousel{
+    top:10;
+}
+
+.marcas{
+    padding-top: 100px;
+}
+
+.div-boton{
+    padding-bottom: 60px;
+}
+
+.articleContent{
+    background-color: green;
+}
