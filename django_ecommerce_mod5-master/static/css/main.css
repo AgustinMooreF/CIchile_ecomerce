@@ -164,3 +164,33 @@ footer{
 .articleContent{
     background-color: green;
 }
+
+.navbar-sup a{
+	font-size: 0.7em;
+	text-align: center;
+	display: inline-block;
+	justify-content: center;
+}
+
+button.btn{
+	font-family: 'Poppins', sans-serif;
+}
+
+a{
+	font-family: 'Poppins', sans-serif;
+}
+
+
+
+.c-white{
+	color:white!important;
+}
+
+#overNavLink{
+		padding-right: 0.3em;
+		
+}
+
+.nav-item{
+	font-family: 'Poppins', sans-serif;
+}

@@ -16,6 +16,14 @@ def store(request):
 	context = {'products':products, 'cartItems':cartItems}
 	return render(request, 'store/store.html', context)
 
+def faq(request):
+	return render(request, 'cichileviews/faq.html', {})
+
+def inicio(request):
+	return render(request, 'cichileviews/inicio.html', {})
+
+def empresa(request):
+	return render(request, 'cichileviews/empresa.html', {})
 
 def cart(request):
 	data = cartData(request)
@@ -26,6 +34,7 @@ def cart(request):
 
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
 	return render(request, 'store/cart.html', context)
+
 
 def checkout(request):
 	data = cartData(request)
