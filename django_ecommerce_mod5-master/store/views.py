@@ -51,7 +51,7 @@ def index(request):
 def listadoProducto(request):
 	return render(request, 'store/listadoProducto.html', {})
 def detalleProducto(request):
-	return render(request, 'store/detalleProducto.html'. {})
+	return render(request, 'store/detalleProducto.html', {})
 
 def updateItem(request):
 	data = json.loads(request.body)
