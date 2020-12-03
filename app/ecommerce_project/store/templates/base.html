@@ -1,0 +1,116 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href=" {% static 'App/assets/images/favicon.ico' %} ">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ci Chile La nueva manera de comprar tus repuestos</title>
+    <script src=" {% static 'App/assets/vendor/home-banner/jquery.min.js' %} "></script>
+    <!-- main css -->
+    <link rel="stylesheet" href=" {% static 'App/assets/css/home-1.css' %} ">
+    <link rel="stylesheet" href=" {% static 'App/assets/vendor/revolution/vendor/revslider/css/settings.css' %} ">
+    <link rel="stylesheet" href=" {% static 'App/assets/vendor/revolution/responsiveslides.css' %} ">
+    <link rel="stylesheet" href=" {% static 'App/assets/vendor/side-menu/side-menu.css' %} ">
+    <link rel="stylesheet" href=" {% static 'App/assets/vendor/side-menu/jquery.mCustomScrollbar.min.css' %} ">
+    <!-- main css -->
+    <!--Start of Tawk.to Script-->
+    <script>
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5770b0a8d5ba37b66ff8ab45/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+
+
+    {% include 'navbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src=" {% static 'App/assets/js/ajax.js' %} "></script>
+    <script src=" {% static 'App/assets/js/formValidation.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/bootstrap/js/popper.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/bootstrap/js/bootstrap.min.js' %} "></script>
+    <!--bootstrap-->
+    <!--owlcarousel-->
+    <script src=" {% static 'App/assets/owlcarousel/owl.carousel.js' %} "></script>
+    <!--owlcarousel-->
+    <!--script-->
+    <script src=" {% static 'App/assets/vendor/jquery/home-1.js' %} "></script>
+    <!--script-->
+    <!-- animation-->
+    <script src=" {% static 'App/assets/vendor/wow/wow.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/wow/page.js' %} "></script>
+    <!-- animation-->
+    <!--select-dropdown-->
+    <script src=" {% static 'App/assets/vendor/jquery/custom-select.js' %} "></script>
+    <!--select-dropdown-->
+    <!--fancybox files -->
+    <link rel="stylesheet" href=" {% static 'App/assets/css/product-hover.css' %} ">
+    <link rel="stylesheet" href=" {% static 'App/assets/vendor/fancy-box/fancybox.min.css' %} " />
+    <script src=" {% static 'App/assets/vendor/fancy-box/jquery.fancybox.min.js' %} "></script>
+    <!--fancybox files -->
+    <!--Revslider js-->
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/jquery.themepunch.tools.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/jquery.themepunch.revolution.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/extensions/revolution.extension.actions.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/extensions/revolution.extension.layeranimation.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/extensions/revolution.extension.navigation.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/extensions/revolution.extension.parallax.min.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/vendor/revslider/js/extensions/revolution.extension.slideanims.min.js' %} "></script>
+    <script src=" {% static 'App/assets/js/banner.js' %} "></script>
+    <!--Revslider js-->
+    <!--scrolltop-->
+    <script src=" {% static 'App/assets/vendor/jquery/scrolltopcontrol.js' %} "></script>
+    <script src=" {% static 'App/assets/vendor/revolution/responsiveslides.min.js' %} "></script>
+    <!--scrolltop-->
+    <!--mCustomScrollbar-->
+    <script src=" {% static 'App/assets/vendor/side-menu/jquery.mCustomScrollbar.concat.min.js' %} "></script>
+    <!--mCustomScrollbar-->
+    <!--side-menu-->
+    <script src=" {% static 'App/assets/vendor/side-menu/side-menu.js' %} "></script>
+    <p data-toggle="modal" class="no-margin" data-target="#myModal" id="model2"></p>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-dialog2">
+    <div class="modal-content text-center">
+      <div class="modal-body modal-body2">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <p><img src=" {% static 'App/assets/images/success.svg' %} " width="50" alt="" title=""></p>
+        <h3 class="modal-title">Gracias!</h3>
+        <h4 class="thanks mt-2">Recibimos tu envío y pronto nos comunicaremos contigo.</h4>
+        <a href="#" target="_blank" class="btn add-to-cart2 d-inline-block font-15 rounded">Volver a la tienda</a> <a href="index.html" class="back-to-home d-block small mt-2"><i class="fa fa-long-arrow-left"></i> Volver al Inicio</a> </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>

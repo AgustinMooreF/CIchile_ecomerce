@@ -1,0 +1,76 @@
+[
+  // categorias .......................................................
+    {
+      "model": "store.category",
+      "pk": 1,
+      "fields": {
+        "name": "Lubricantes",
+        "slug": "lub",
+        "description":"lubricantes para automoviles",
+        "image": ""
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 2,
+      "fields": {
+        "name": "Inyectores",
+        "slug": "iny_1",
+        "description":"inyectores para automoviles",
+        "image": ""
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 3,
+      "fields": {
+        "name": "Frenos",
+        "slug": "fren_1",
+        "description":"Frenos para automoviles",
+        "image": ""
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 4,
+      "fields": {
+        "name": "Neumaticos",
+        "slug": "neu_1",
+        "description":"Neumaticos para automoviles",
+        "image": ""
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 5,
+      "fields": {
+        "name": "Baterias",
+        "slug": "bat_1",
+        "description":"Baterias para automoviles",
+        "image": ""
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 6,
+      "fields": {
+        "name": "Embragues",
+        "slug": "emb_1",
+        "description":"Embragues de Motores para automoviles",
+        "image": ""
+      }
+    },
+    {
+      "model": "store.category",
+      "pk": 7,
+      "fields": {
+        "name": "Turbos",
+        "slug": "tur_1",
+        "description":"Turbos para automoviles",
+        "image": ""
+      }
+    }
+    // fin categorias.....................................................................
+
+    
+  ]

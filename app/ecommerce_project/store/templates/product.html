@@ -1,0 +1,352 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Product
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row mt-5">
+    <div class="col-10 mx-auto col-md-6 my-3">
+      <img src="{{product.image.url}}" alt="">
+    </div>
+    <div class="col-10 mx-auto col-md-6 my-3">
+      <div>
+        <h1 class="product_title">{{product.name}}</h1>
+        <h5 class="text-info font-italic mb-3">
+          <span class="mr-1">$</span> {{product.price}}
+        </h5>
+        <p class="product_description">Product Description</p>
+        <p class="text-justify product_text">{{product.description}}</p>
+        {% if product.stock <= 0 %}
+        <p class="text-justify product_text"><b>Out of Stock</b></p>
+        {% else %}
+        <a href="{% url 'add_cart' product.id %}">
+          <button type="button" name="button" class="btn btn-secondary">
+            Add to Cart
+          </button>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+  <div class="card-header">
+    <h4>Reviews</h4>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <textarea name="content" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+      <button type="submit" class="btn btn-success">Post</button>
+      </div>
+    </form>
+  </div>
+  {% endif %}
+
+  {% if reviews.count > 0 %}
+  <ul class="list-group list-group-flush">
+   {% for review in reviews %}
+       <li class="list-group-item"> <h5>{{review.user.username}}</h5>
+       <p class="card-text">{{review.content}}</p>
+       </li>
+   {% endfor %}
+ </ul>
+
+  {% endif %}
+</div>
+</div>
+
+
+
+
+<html lang="en">
+<body>
+
+
+
+
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb2">
+      <li class="breadcrumb-item"><a href=" {% static 'App/index.html' %} "><i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+      <li class="breadcrumb-item">Lubricantes</li>
+      <li class="breadcrumb-item">Sintético 5W30</li>
+    </ol>
+  </nav>
+  <div class="clearfix"></div>
+</div>
+<div class="inner-header2">
+  <h3>Lubricantes</h3>
+</div>
+<div class="inner-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <ul id="vertical">
+          <li data-thumb="assets/images/product-details/product-1.jpg" class="lslide active" > <img src=" {% static 'App/assets/images/product-details/product-1.jpg' %} " alt="" title=""></li>
+          <li data-thumb="assets/images/product-details/product-2.jpg" class="lslide" > <img src=" {% static 'App/assets/images/product-details/product-2.jpg' %} " alt="" title=""> </li>
+          <li data-thumb="assets/images/product-details/product-3.jpg" class="lslide" > <img src=" {% static 'App/assets/images/product-details/product-3.jpg' %} " alt="" title=""> </li>
+          <li data-thumb="assets/images/product-details/product-4.jpg" class="lslide" > <img src=" {% static 'App/assets/images/product-details/product-4.jpg' %} " alt="" title=""></li>
+          <li data-thumb="assets/images/product-details/product-5.jpg" class="lslide" > <img src=" {% static 'App/assets/images/product-details/product-5.jpg' %} " alt="" title=""></li>
+          <li data-thumb="assets/images/product-details/product-6.jpg" class="lslide" > <img src=" {% static 'App/assets/images/product-details/product-6.jpg' %} " alt="" title=""></li>
+          <li data-thumb="assets/images/product-details/product-7.jpg" class="lslide" > <img src=" {% static 'App/assets/images/product-details/product-7.jpg' %} " alt="" title=""></li>
+        </ul>
+      </div>
+
+      <!-- DETALLES DEL PRODUCTO! TEXTOS PRECIO ETC................................................................................................................ -->
+      <div class="col-lg-6  product-text">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-6">
+            <h3>Lubricante 5W30 Bencinero</h3>
+            <img src=" {% static 'App/assets/images/star.png' %} " alt="" title=""> <img src="assets/images/star.png" alt="" title=""> <img src="assets/images/star.png" alt="" title=""> <img src="assets/images/star.png" alt="" title=""> <img src="assets/images/star.png" alt="" title=""> </div>
+          <div class="col-md-4 col-sm-6 text-right col-6">
+            <div class="price-css"> <span>$16.000</span>
+              <div class="clearfix"></div>
+              $14.000 </div>
+          </div>
+          <div class="col-md-12">
+            <div class="mt-3">
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+              <div class="mt-3 text-2">
+                <p><span>Stock</span>: &nbsp;&nbsp;<img src=" {% static 'App/assets/images/available.png' %} " alt="" title="" > Disponible</p>
+                <p><span>Código</span>: &nbsp;&nbsp;123345</p>
+                <p><span>Categoría</span>: &nbsp;&nbsp;Motor </p>
+              </div>
+              <div class="quality">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 mb-1 mt-1">
+                    <div class="input-group">
+                      <h4>Cantidad :</h4>
+                      <span class="input-group-btn">
+                      <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]"> <i class="fa fa-minus"></i> </button>
+                      </span>
+                      <input type="text" name="quant[1]" class="input-number" value="1" min="1" max="10">
+                      <span class="input-group-btn">
+                      <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]"><i class="fa fa-plus"></i> </button>
+                      </span> </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 mb-1 mt-1"> <a class="btn add-to-cart2 m-0" href=" {% static 'App/' %} ">Agregar a Carro</a> </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="share">
+                <h3 class="pull-left">Redes Sociales : &nbsp; &nbsp;</h3>
+                <div class="pull-left">
+                  <ul class="social-network2">
+                    <li><a href="#" class="facebook-icon" title=""><i class="fa fa-facebook"></i></a></li>
+                    
+                    <li><a href="#" class="google-icon" title=""><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="linkedin-icon" title=""><i class="fa fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+              <div class="row categories">
+                <div class="col-md-7">
+                  <h3 class="pull-left"> Categoria : <span>Piezas Motor</span></h3>
+                </div>
+                <div class="col-md-5">
+                  <h3 class="pull-left"> Palabras relacionadas : <span>Motor, Lubricantes, 5w30, Sintético, Bencinero</span></h3>
+                </div>
+                <div class="clearfix"></div>
+                <div class="list-3 row">
+                  <div class="col-lg-4"><img src=" {% static 'App/assets/images/shield.png' %} " alt=""> Producto de Calidad</div>
+                  <div class="col-lg-4"><img src=" {% static 'App/assets/images/shipping.png' %} " alt=""> 24hrs Santiago</div>
+                  <div class="col-lg-4"><img src=" {% static 'App/assets/images/transfer.png' %} " alt=""> Despacho a todo Chile</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"> </div>
+      <div class="col-md-12">
+        <div id="tabs" class="description">
+          <div>
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"> <a class="active" id="nav-home-tab" data-toggle="tab" href=" {% static 'App/#nav-home' %} " role="tab" aria-controls="nav-home" aria-selected="true">Descripción</a>&nbsp;|&nbsp;<a class="" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Información Adicional</a>&nbsp;|&nbsp;<a class="" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Comentarios</a> </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active text-1" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <p class="p1"><strong>Lorem Ipsum is simply dummy text<br>
+                  </strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p class="p2"><strong>Lorem Ipsum is simply<br>
+                  </strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p class="p2"><strong>Lorem Ipsum is simply<br>
+                  </strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p class="p2"><strong>Lorem Ipsum<br>
+                  </strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+      
+              </div>
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th width="20%"><div align="left">Código de Producto</div></th>
+                      <td>123455</td>
+                    </tr>
+                    <tr>
+                      <th><div align="left">Calories Per Serving</div></th>
+                      <td>352 Calories</td>
+                    </tr>
+                    <tr>
+                      <th><div align="left">Nutrition Facts</div></th>
+                      <td>Low Sodium</td>
+                    </tr>
+                    <tr>
+                      <th><div align="left">Storage life</div></th>
+                      <td>1 month</td>
+                    </tr>
+                    <tr>
+                      <th><div align="left">Per Pack</div></th>
+                      <td>2, 4, 6</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="row m-0 text-center-m">
+                      <div class="col-lg-2 col-md-3 col-sm-2 text-center mb-3"><img src=" {% static 'App/assets/images/review1.jpg' %} " alt="" title="" class="radius image-boder img-fluid"></div>
+                      <div class="col-lg-10 col-md-9 col-sm-10">
+                        <h2 class="font-15 mt-10">Daryl Michaels <span class="font-13 text-themecolor">Product: Mobile Phone</span></h2>
+                        <span class="fa fa-star checked font-13"></span> <span class="fa fa-star checked font-13"></span> <span class="fa fa-star checked font-13"></span> <span class="fa fa-star font-13"></span> <span class="fa fa-star font-13"></span> &nbsp;<span class="red">1 Min ago </span>
+                        <div class="mt-1">
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+
+
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-12">
+                        <hr>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="col-lg-2 col-md-3 col-sm-2 text-center"><img src=" {% static 'App/assets/images/review2.jpg' %} " alt="" title="" class="radius image-boder img-fluid"></div>
+                      <div class="col-lg-10 col-md-9 col-sm-10">
+                        <h2 class="font-15 mt-10">Daryl Michaels <span class="font-13 text-themecolor">Product: Mobile Phone</span></h2>
+                        <span class="fa fa-star checked font-13"></span> <span class="fa fa-star checked font-13"></span> <span class="fa fa-star checked font-13"></span> <span class="fa fa-star font-13"></span> <span class="fa fa-star font-13"></span> <span class="red">&nbsp;1 Min ago </span>
+                        <div class="mt-1">
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Formulario de Contacto</h4>
+                    <p class="mb-3">Complete el formulario y un ejecutivo se pondrá en contacto con usted</p>
+                    <form class="review-form">
+                      <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Your Name">
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control" type="email" placeholder="Email Address">
+                      </div>
+                      <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Your review"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-rating"> <strong>Calificaión:</strong>
+                          <div class="stars">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5"></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4"></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3"></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2"></label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1"></label>
+                          </div>
+                        </div>
+                        <button class="btn add-to-cart3">Enviar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="related">
+        <div class="col-md-12">
+          <h2 class="icon-css">Productos Relacionados</h2>
+          <div class="owl-carousel latest-products owl-theme wow fadeIn">
+            <div class="item">
+              <div class="product"><a class="product-img" href=" {% static 'App/' %} "><img src=" {% static 'App/assets/images/product-img/product-destc-5.jpg' %} " alt=""></a>
+                 <h3 class="product-type">Diesel 5W30 Hyundai </h3>
+                <h4 class="product-name"> Sintético 6 ltrs.</h4>
+                <h3 class="product-price">$16.900 </h3>
+                <div class="product-select">
+                  <button data-toggle="tooltip" data-placement="top" title="" class="add-to-compare round-icon-btn" data-fancybox="gallery" data-src=" {% static 'App/#popup-1' %} " data-original-title="Detalle rápido"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                  
+                  <button data-toggle="tooltip" data-placement="top" title="Agregar a Carro" class="add-to-cart round-icon-btn" onClick="window.location.href=' {% static 'App/shop.html' %} '"><i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div id="popup-1" class="popup-fcy">
+  <div class="row">
+    <div class="col-md-6 text-center"> <img src=" {% static 'App/assets/images/product-img/product-big-1.jpg' %} " alt="" title="" class="img-fluid"> </div>
+    <div class="col-md-6">
+      <div class="product_meta">
+<p><span>Availability </span> : not in Stock</p>
+<p><span>Categories </span> : Auto Parts</p>
+<p><span>Tags </span> : Auto Parts/Tools Store</p>
+      </div>
+      <div class="product-dis">
+        <h3>Products Name</h3>
+        <hr>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>        <div class="row">
+          <div class="col-2 pr-0">
+            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
+          </div>
+          <div class="col-10">
+            <div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="add_to_cart"><a href=" {% static 'App/' %} " class="">ADD TO CART</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 mt-4 p-0">
+            <hr class="m-0 p-0">
+          </div>
+          <div class="pb-3 pt-3">
+            <div class="left-icon"> <a class="add-to-compare round-icon-btn" href=" {% static 'App/' %} "> <i class="fa fa-eye" aria-hidden="true"></i> </a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
+          </div>
+          <div class="col-md-12 mb-4 p-0">
+            <hr class="m-0 p-0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+</head>
+<body>
+
+<!-- Navigation -->
+<!-- <div class="container search-div container-fluid">
+  <div class="row">
+    <div class="col-lg-9 col-md-4 top-dropdown">
+      <div> <img src=" {% static 'App/assets/images/brrMenu.jpg' %} " alt="" title="" class="img-fluid" > </div>
+    </div>
+    <div class="col-lg-3 col-md-8">
+      <div class="input-group filter-by">
+        <input type="hidden" name="search_param" value="all" id="search_param">
+        <input type="text" class="form-control" name="x" placeholder="What do you need?">
+        <span class="input-group-btn">
+        <button class="btn btn-default search-bt" type="button">SEARCH</button>
+        </span> </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container container-fluid">
+  <nav aria-label="breadcrumb" class="bread-boder">
+    <div class="row">
+      <div class="col-lg-8 col-md-6">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href=" {% static 'App/index.html' %} "><i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+          <li class="breadcrumb-item">Aceites Motor</li>
+        </ol>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="custom-select2">
+              <select>
+                <option>Ordenar Listado</option>
+                <option value="A-Z">A to Z</option>
+                <option value="Z-A">Z to A</option>
+                <option value="High to low price">
+Precio alto a bajo</option>
+                <option value="Low to high price">Bajo a alto</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="custom-select2">
+              <select>
+                <option value="A-Z">mostrar 10</option>
+                <option value="Z-A">mostrar 20</option>
+                <option value="High to low price">mostrar 30</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="row">
+    <div class="col-lg-2 col-md-12">
+      <div class="inner-left-menu">
+        <h3>{{category.name}}</h3>
+        <div class="list-css">
+          <ul>
+          {% for product in products %}
+            <li><a href=" {% static 'App/listadoProducto.html' %} ">{{product.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <h3>Filtro por precio</h3>
+        <div class="price-range-block">
+          <div id="slider-range" class="price-filter-range"></div>
+          <div class="row">
+            <div class="col-9 p-0">
+              <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
+              <input type="number" min=0 max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
+            </div>
+            <div class="col-3 p-0">
+              <button type="button" class="btn btn-filter">Filtrar</button>
+            </div>
+          </div>
+          <br>
+        </div>
+<!--         
+        <h3>Palabras relacionadas</h3>
+        <div class="tag_bottom"><a class="tag-btn" href=" {% static 'App/' %} ">Bombas de Agua</a> <a class="tag-btn" href="">Kit correa distribución</a> <a class="tag-btn" href="">Kit distribución</a> <a class="tag-btn" href="">Inyectores</a> <a class="tag-btn" href="">Turbocompresor</a> </div> -->
+      </div>
+    </div>
+    <div class="col-lg-10 col-md-12">
+      <div class="row">
+        <div class="col-12">
+          <div class="right-heading">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>Listado Productos</h3>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="row">
+
+            {% for product in products %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <div class="product">
+                <a class="product-img" href=" {{product.get_url}}">
+                <img src=" {{product.image.url}}" alt="">
+              </a>
+                 <h3 class="product-type">{{product.name}}</h3>
+                <h4 class="product-name">extra</h4>
+                <div class="row m-0 list-n">
+                  <div class="col-lg-12 p-0">
+                    <h5 class="product-price">{{product.price}}</h5>
+                  </div>
+                  <div class="col-lg-12 p-0">
+                    <div class="product-price">
+                      <form class="form-inline">
+                        <div class="stepper-widget">
+                          <button type="button" class="js-qty-down">-</button>
+                          <input type="text" class="js-qty-input" value="1">
+                          <button type="button" class="js-qty-up">+</button>
+                          <button type="button" onClick="window.location.href=' {% static 'App/cart.html' %} '" class="add2"><i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-select">
+                  <button data-toggle="tooltip" data-placement="top" title="Detalle rápido" class="add-to-compare round-icon-btn" data-fancybox="gallery" data-src=" {% static 'App/#popup-1' %} "><i class="fa fa-eye" aria-hidden="true"></i></button>
+                  
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            <div class="clearfix"></div>
+            <div class="col-10 mx-auto my-2 text-center">
+              {% if products.paginator.num_pages > 1 %}
+                  {% for page_number in products.paginator.page_range %}
+                      <a href="?page={{page_number}}"
+                       class="btn btn-light btn-sm {% if products.number == page_number %}active{% endif %}">
+                       {{page_number}}</a>
+                  {% endfor %}
+              {% endif %}
+            </div>
+            <!-- <div class="col text-center">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-template d-flex justify-content-center float-none">
+                  <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                  <li class="page-item"><a href="#" class="page-link active">1</a></li>
+                  <li class="page-item"><a href="#" class="page-link">2</a></li>
+                  <li class="page-item"><a href="#" class="page-link">3</a></li>
+                  <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                </ul>
+              </nav>
+            </div> -->
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div id="popup-1" class="popup-fcy">
+  <div class="row">
+    <div class="col-md-6 text-center"> <img src=" {% static 'App/assets/images/product-img/product-big-1.jpg' %} " alt="" title="" class="img-fluid"> </div>
+    <div class="col-md-6">
+      <div class="product_meta">
+<p><span>Producto </span> : Aceite</p>
+<p><span>Categoria </span> : Piezas Motor</p>
+<p><span>Plabras claves </span> : Motor/lubricantes</p>
+      </div>
+      <div class="product-dis">
+        <h3>Aceite 5W30 + filtro</h3>
+        <hr>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book when an unknown printer took a galley of type and scrambled it to make a type specimen bookwhen an unknown printer took a galley of type and scrambled it to make a type specimen book.  remaining essentially unchanged.</p>        <div class="row">
+          <div class="col-2 pr-0">
+            <input type="number"  class="input-text qty text" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
+          </div>
+          <div class="col-10">
+            <div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="add_to_cart"><a href=" {% static 'App/' %} " class="">AGREGAR A CARRO</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 mt-4 p-0">
+            <hr class="m-0 p-0">
+          </div>
+          <div class="pb-3 pt-3">
+            <div class="left-icon"> <a class="add-to-compare round-icon-btn" href=" {% static 'App/' %} "> <i class="fa fa-eye" aria-hidden="true"></i> </a> <a href="" class="mr-3"><i class="fa fa-balance-scale" aria-hidden="true"></i></a> </div>
+          </div>
+          <div class="col-md-12 mb-4 p-0">
+            <hr class="m-0 p-0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+
+{% endblock %}
