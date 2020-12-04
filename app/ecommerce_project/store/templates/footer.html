@@ -49,9 +49,8 @@
     <div class="col-lg-2 col-md-6 col-sm-6 footer-link  wow fadeInLeft">
       <h3>Información</h3>
       <ul>
-        <li><a href=" {% static 'App/about-us.html' %} ">Empresa</a></li>
-        <li><a href=" {% static 'App/faq.html' %} ">FAQ</a></li>
-        <li><a href=" {% static 'App/contact.html' %} ">Contacto</a></li>
+        <li><a href="{% url 'about' %} ">Empresa</a></li>
+        <li><a href="{% url 'home' %} ">FAQ</a></li>
         <li><a href=" {% static 'App/shop.html' %} ">Envío</a></li>
         <li><a href=" {% static 'App/' %} ">Devoluciones</a></li>
         
@@ -61,10 +60,10 @@
       <h3>My Account</h3>
       <ul>
         <li><a href=" {% static 'App/my-account.html' %} ">Mi Cuenta</a></li>
-        <li><a href=" {% static 'App/login.html' %} ">Acceder</a></li>
-        <li><a href=" {% static 'App/wishlist.html' %} ">Registrate</a></li>
+        <li><a href="{% url 'signin' %}">Acceder</a></li>
+        <li><a href=" {% url 'signup' %} ">Registrate</a></li>
         <li><a href=" {% static 'App/register.html' %} ">Cómo Comprar</a></li>
-        <li><a href=" {% static 'App/' %} ">Cómo Pagar</a></li>
+        <!-- <li><a href=" {% static 'App/' %} ">Cómo Pagar</a></li> -->
         
       </ul>
     </div>

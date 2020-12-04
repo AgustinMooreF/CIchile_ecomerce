@@ -50,7 +50,7 @@ def productPage(request, category_slug, product_slug):
 
     reviews = Review.objects.filter(product=product)
 
-    return render(request, 'product.html', {'product': product, 'reviews': reviews})
+    return render(request, 'product_view.html', {'product': product, 'reviews': reviews})
 
 
 def _cart_id(request):
@@ -334,6 +334,6 @@ def gallery(request, category_slug=None):
         products = paginator.page(paginator.num_pages)
 
     return render(request, 'gallery.html', {'category': category_page, 'products': products})
-    
+
 def about(request):
 	return render(request, 'about.html', {})

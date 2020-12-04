@@ -308,7 +308,9 @@
             </a>
             {% else %}
             <a class="dropdown-toggle" href=" {% static 'App/' %} " data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-            <div class="dropdown-menu dropdown-menu-right animate slideIn"> <a class="dropdown-item" href="{% url 'signin' %}">Ingresar</a><a class="dropdown-item" href="{% url 'signup' %}">Registrarse</a> <a class="dropdown-item" href="forgot-password.html">Olvidaste tu Contraseña</a> </div>
+            <div class="dropdown-menu dropdown-menu-right animate slideIn"> <a class="dropdown-item" href="{% url 'signin' %}">Ingresar</a><a class="dropdown-item" href="{% url 'signup' %}">Registrarse</a> 
+            <!-- <a class="dropdown-item" href="forgot-password.html">Olvidaste tu Contraseña</a>  -->
+            </div>
             {% endif %}
           </li>
           {% if item_count > 0 %}
