@@ -1,4 +1,4 @@
-<!-- <nav class="navbar navbar-expand-md navbar-light bg-dark">
+<nav class="navbar navbar-expand-md navbar-light bg-dark">
 
   <a href="/" class="navbar-brand"><i class="fas fa-store text-warning fa-2x"></i></a>
   <button type="button" class="navbar-toggler bg-light" data-toggle="collapse"
@@ -64,7 +64,7 @@
     </div>
   </form>
   </div>
-</nav> -->
+</nav>
 
 <!DOCTYPE html>
 {% load static %}
@@ -89,7 +89,10 @@
             <a class="dropdown-item" href=" {% static 'App/shop-col-3.html' %} ">Piezas De Motor Y Aceite</a> <a class="dropdown-item" href="listadoProducto.html">Dirección y  Suspensión </a> <a class="dropdown-item" href="listadoProducto.html">Frenado</a> <a class="dropdown-item" href="listadoProducto.html">Filtros</a> <a class="dropdown-item" href="listadoProducto.html">Embrague/Caja De Cambios</a><a class="dropdown-item" href="listadoProducto.html">Motor</a><a class="dropdown-item" href="listadoProducto.html">Enfriamiento</a><a class="dropdown-item" href="listadoProducto.html">Iluminacion</a><a class="dropdown-item" href="listadoProducto.html">Correas</a><a class="dropdown-item" href="listadoProducto.html">Inyectores</a><a class="dropdown-item" href="listadoProducto.html">Turbo</a></div>
           <div class="col-sm-12">
             <h5>Búsqueda Por Marca Automotriz</h5>
-            <a class="dropdown-item" href=" {% static 'App/listadoProducto.html' %} ">Hyunda</a> <a class="dropdown-item" href="listadoProducto.html">KIA</a> <a class="dropdown-item" href="listadoProducto.html">SsangYong</a> <a class="dropdown-item" href="listadoProducto.html">Mitsubishi</a><a class="dropdown-item" href="shop-w-o-sidebar-col-6.html">Daewoo</a><a class="dropdown-item" href="shop-w-o-sidebar-col-6.html">Nissan</a> <a class="dropdown-item" href="shop-w-o-sidebar-col-6.html">Toyota</a><a class="dropdown-item" href="shop-w-o-sidebar-col-6.html">Chevolet</a></div>
+            {% for marca in brands %}
+              <a class="dropdown-item" href=" {% static 'App/listadoProducto.html' %} ">{{marca.name}}</a> 
+            {% endfor %}
+          </div>
           
  
       </div>
@@ -247,7 +250,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav">
         <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}">Inicio</a></li>
-        <li class="nav-item dropdown megamenu-li"> <a class="nav-link " href= "{% url 'gallery' %}"  id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Empresa </a>
+        <li class="nav-item dropdown megamenu-li"> <a class="nav-link " href= "{% url 'about' %}"> Empresa </a>
         </li>
         <li class="nav-item dropdown megamenu-li"> <a class="nav-link dropdown-toggle" href=" {% url 'gallery' %} " id="Dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Líneas de Repuestos</a>
           <div class="dropdown-menu megamenu animate slideIn" aria-labelledby="navbarDropdownBlog">
@@ -305,7 +308,7 @@
             </a>
             {% else %}
             <a class="dropdown-toggle" href=" {% static 'App/' %} " data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-            <div class="dropdown-menu dropdown-menu-right animate slideIn"> <a class="dropdown-item" href=" {% static 'App/login.html' %} ">Ingresar</a><a class="dropdown-item" href="register.html">Registrarse</a> <a class="dropdown-item" href="forgot-password.html">Olvidaste tu Contraseña</a> </div>
+            <div class="dropdown-menu dropdown-menu-right animate slideIn"> <a class="dropdown-item" href="{% url 'signin' %}">Ingresar</a><a class="dropdown-item" href="{% url 'signup' %}">Registrarse</a> <a class="dropdown-item" href="forgot-password.html">Olvidaste tu Contraseña</a> </div>
             {% endif %}
           </li>
           {% if item_count > 0 %}

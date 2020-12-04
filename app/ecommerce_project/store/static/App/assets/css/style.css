@@ -50,7 +50,7 @@ body {padding-top:0; font-family: 'Rubik', sans-serif; line-height:1.8;overflow-
 
 a {color: #000;}
 a:hover {
-	color: #FFFFFF;
+	color: #999999;
 	text-decoration: none
 }
 .carousel-item {min-height:inherit;
@@ -4105,7 +4105,11 @@ margin-bottom: 20px; }
 .why-choose h2:after {content: ""; background-color:#FDB818; width:30px;height:3px;display:block;margin:auto;margin-top:5px;}
 .icon-detail {margin-bottom:10px} 
 
-.icon-detail h5 {font-weight:600; margin:10px 0 10px 0; color:#FDB818;}
+.icon-detail h5 {
+	font-weight: 600;
+	margin: 10px 0 10px 0;
+	color: #1E4066;
+}
 
 .icon-detail p { font-size:15px;  margin:0 0 30px 0;}
 

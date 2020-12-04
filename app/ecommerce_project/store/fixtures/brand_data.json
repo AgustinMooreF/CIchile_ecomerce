@@ -1,7 +1,6 @@
 [
-    // marcas  .......................................................
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 1,
         "fields": {
           "name": "Hyundai",
@@ -10,7 +9,7 @@
         }
       },
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 2,
         "fields": {
           "name": "Mitsubishi",
@@ -19,7 +18,7 @@
         }
       },
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 3,
         "fields": {
           "name": "Subaru",
@@ -28,7 +27,7 @@
         }
       },
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 4,
         "fields": {
           "name": "KIA",
@@ -37,7 +36,7 @@
         }
       },
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 5,
         "fields": {
           "name": "Toyota",
@@ -46,7 +45,7 @@
         }
       },
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 6,
         "fields": {
           "name": "Chevrolet",
@@ -55,16 +54,12 @@
         }
       },
       {
-        "model": "car_brand.category",
+        "model": "store.car_brand",
         "pk": 7,
         "fields": {
           "name": "Ssangyong",
           "code": 7,
           "image": ""
         }
-      }
-
-
-  
-      
+      }    
     ]

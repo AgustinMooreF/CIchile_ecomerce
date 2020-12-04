@@ -1,4 +1,4 @@
-from .models import Category, Cart, CartItem
+from .models import Category, Cart, CartItem, Car_brand
 from .views import _cart_id
 
 
@@ -18,5 +18,6 @@ def counter(request):
 
 
 def menu_links(request):
+    brands = Car_brand.objects.all()
     links = Category.objects.all()
-    return dict(links=links)
+    return dict(links=links, brands=brands)

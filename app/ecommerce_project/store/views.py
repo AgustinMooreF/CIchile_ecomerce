@@ -184,8 +184,7 @@ def cart_remove(request, product_id):
     else:
         cart_item.delete()
     return redirect('cart_detail')
-def index(request):
-	return render(request, 'home.html', {})
+
 
 
 def cart_remove_product(request, product_id):
@@ -335,3 +334,6 @@ def gallery(request, category_slug=None):
         products = paginator.page(paginator.num_pages)
 
     return render(request, 'gallery.html', {'category': category_page, 'products': products})
+    
+def about(request):
+	return render(request, 'about.html', {})

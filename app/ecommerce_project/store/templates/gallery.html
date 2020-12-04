@@ -125,9 +125,9 @@ Precio alto a bajo</option>
                     <div class="product-price">
                       <form class="form-inline">
                         <div class="stepper-widget">
-                          <button type="button" class="js-qty-down">-</button>
+                          <button type="button" class="js-qty-down"  href="{% url 'cart_remove' product.id %}">-</button>
                           <input type="text" class="js-qty-input" value="1">
-                          <button type="button" class="js-qty-up">+</button>
+                          <button type="button" class="js-qty-up"  href="{% url 'add_cart' product.id %}">+</button>
                           <button type="button" onClick="window.location.href=' {% static 'App/cart.html' %} '" class="add2"><i class="fa fa-shopping-bag" aria-hidden="true"></i></button>
                         </div>
                       </form>
