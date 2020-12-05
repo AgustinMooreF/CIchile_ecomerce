@@ -1,6 +1,6 @@
 FROM python:3.7
 
-ENV DJANGO_SETTINGS_MODULE store.production
+ENV DJANGO_SETTINGS_MODULE ecommerce_project.production
 
 ENV PYTHONUNBUFFERED 1
 

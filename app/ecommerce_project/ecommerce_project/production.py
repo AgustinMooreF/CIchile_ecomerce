@@ -15,11 +15,6 @@ DATABASES = {
     },
 }
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    )
-}
 STATIC_ROOT="/store/static"
 #ADMIN_ENABLED=False
 DEBUG=False
